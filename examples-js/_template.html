@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AstronomyLibs::Template Examples (JS)</title>
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="shortcut icon" href="../favicon/moon.png">
+<script src="../libs-js/_template.js"></script>
+</head>
+<body>
+<form>
+    <table>
+        <tbody>
+            <tr>
+                <td>In:</td>
+                <td><input type="text" id="invalue" autofocus oninput="updateOut()"></td>
+            </tr>
+            <tr>
+                <td>Out:</td>
+                <td><input type="text" id="outvalue"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+var in_value  = document.getElementById('invalue');
+var out_value = document.getElementById('outvalue');
+
+function updateOut() {
+    out_value.value = AstronomyLibs_Template_intToFloat(in_value.value);
+}
+</script>
+</body>
+</html>
