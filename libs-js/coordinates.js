@@ -1,4 +1,20 @@
 /*
+ * AstronomyLibs_Coordinates_text2Float(text_coordinate)
+ *
+ * get float representation of coordinates like +19°10'49.0"
+ * i.e. 19.180277778
+ *
+ * @author Markus Popp <git@mpopp.net>
+ */
+function AstronomyLibs_Coordinates_text2Float(text_coordinate) {
+    var regex = /([+-]?)(\d{1,2})°(\d{1,2})'(\d{1,2}(?:\.\d*))\"?/;
+
+    var float_coordinate = text_coordinate;
+
+    return float_coordinate;
+}
+
+/*
  * AstronomyLibs_Coordinates_float2Text(float_coordinate, decimals)
  *
  * get text representation of coordinates like 19.180277778
