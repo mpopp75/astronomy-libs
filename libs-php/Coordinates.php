@@ -7,7 +7,7 @@ class Coordinates
      * get float representation of coordinates like +19°10'49.0"
      * i.e. 19.180277778
      */
-    public static function textToFloat($textCoordinate) {
+    public static function text2Float($textCoordinate) {
         $floatCoordinate = $textCoordinate;
 
         // regex to extract parts needed for calcuation
@@ -26,5 +26,19 @@ class Coordinates
         }
 
         return $floatCoordinate;
+    }
+
+    public static function float2Text($floatCoordinate, $decimals = 1) {
+        $degrees = (int)$floatCoordinate;
+
+        $minutesFull = abs((int)$floatCoordinate - $floatCoordinate) * 60;
+
+        $minutes = (int)$minutesFull;
+
+        $seconds = number_format((($minutesFull - $minutes) * 60), $decimals, ".", "");
+
+        $textCoordinate = $degrees . "°" . $minutes . "'" . $seconds . "\"";
+
+        return $textCoordinate;
     }
 }
