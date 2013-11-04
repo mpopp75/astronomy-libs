@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AstronomyLibs::Coordinates Examples (JS)</title>
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="shortcut icon" href="../favicon/moon.png">
+<script src="../libs-js/coordinates.js"></script>
+</head>
+<body>
+<form>
+    <table>
+        <tbody>
+            <tr>
+                <td>Float Coordinates:</td>
+                <td><input type="text" id="textcoordinates" autofocus oninput="updateFloat2Text()"></td>
+            </tr>
+            <tr>
+                <td>Text Coordinates:</td>
+                <td><input type="text" id="floatcoordinates"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+var textcoordinates  = document.getElementById('textcoordinates');
+var floatcoordinates = document.getElementById('floatcoordinates');
+
+function updateFloat2Text() {
+    floatcoordinates.value = AstronomyLibs_Coordinates_float2Text(textcoordinates.value);
+}
+</script>
+</body>
+</html>
