@@ -8,8 +8,6 @@ class Coordinates
      * i.e. 19.180277778
      */
     public static function text2Float($textCoordinate) {
-        $floatCoordinate = $textCoordinate;
-
         // regex to extract parts needed for calcuation
         $regex = "/([+-]?)(\d{1,2})°(\d{1,2})'(\d{1,2}(?:\.\d*))\"?/";
 
