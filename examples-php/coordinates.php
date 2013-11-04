@@ -6,7 +6,7 @@ use mpopp75\AstronomyLibs as alibs;
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>AstronomyLibs::Coordinates Examples</title>
+<title>AstronomyLibs::Coordinates Examples (PHP)</title>
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="shortcut icon" href="../favicon/moon.png">
 </head>
