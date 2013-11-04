@@ -12,12 +12,12 @@
     <table>
         <tbody>
             <tr>
-                <td>Float Coordinates:</td>
-                <td><input type="text" id="textcoordinates" autofocus oninput="updateFloat2Text()"></td>
+                <td>Float Coordinates</td>
+                <td>Text Coordinates</td>
             </tr>
             <tr>
-                <td>Text Coordinates:</td>
-                <td><input type="text" id="floatcoordinates"></td>
+                <td><input type="text" id="floatcoordinates" autofocus oninput="updateFloat2Text()" placeholder="Float"></td>
+                <td><input type="text" id="textcoordinates" oninput="updateText2Float()" placeholder="Text"></td>
             </tr>
         </tbody>
     </table>
@@ -27,7 +27,11 @@ var textcoordinates  = document.getElementById('textcoordinates');
 var floatcoordinates = document.getElementById('floatcoordinates');
 
 function updateFloat2Text() {
-    floatcoordinates.value = AstronomyLibs_Coordinates_float2Text(textcoordinates.value);
+    textcoordinates.value = AstronomyLibs_Coordinates_float2Text(floatcoordinates.value);
+}
+
+function updateText2Float() {
+    floatcoordinates.value = AstronomyLibs_Coordinates_text2Float(textcoordinates.value);
 }
 </script>
 </body>

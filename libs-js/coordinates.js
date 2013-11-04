@@ -7,9 +7,27 @@
  * @author Markus Popp <git@mpopp.net>
  */
 function AstronomyLibs_Coordinates_text2Float(text_coordinate) {
-    var regex = /([+-]?)(\d{1,2})°(\d{1,2})'(\d{1,2}(?:\.\d*))\"?/;
+    // regex to extract parts needed for calcuation
+    var regex = new RegExp(/([+-]?)(\d{1,3})\s*°\s*(?:(\d{1,2})\s*'\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*\"\s*)?/);
 
-    var float_coordinate = text_coordinate;
+    var matches = regex.exec(text_coordinate);
+
+    if (isNaN(matches[3])) {
+        matches[3] = 0;
+    }
+
+    if (isNaN(matches[4])) {
+        matches[4] = 0;
+    }
+
+    var float_coordinate = parseFloat(matches[2]) +
+                            parseFloat(matches[3]) / 60 +
+                            parseFloat(matches[4]) / 3600;
+
+    // if coordinates are negative
+    if (matches[1] == "-") {
+        float_coordinate = -float_coordinate;
+    }
 
     return float_coordinate;
 }
