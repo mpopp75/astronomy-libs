@@ -12,13 +12,17 @@ use mpopp75\AstronomyLibs as alibs;
 </head>
 <body>
 <?php
-$textCoordinate = " -37°9'13.788\"";
+$textCoordinate = "-359° 9' 13.799\"";
 
 $floatCoordinate = alibs\Coordinates::text2Float($textCoordinate);
 
-print "<p>The float representation of $textCoordinate is $floatCoordinate.</p>";
+if ($floatCoordinate == false) {
+    print "<p>$textCoordinate is an invalid entry.</p>";
+} else {
+    print "<p>The float representation of $textCoordinate is $floatCoordinate.</p>";
+}
 
-$floatCoordinate = -37.15383;
+$floatCoordinate = -359.15383;
 
 $textCoordinate = alibs\Coordinates::float2Text($floatCoordinate);
 

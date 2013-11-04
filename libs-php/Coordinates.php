@@ -14,10 +14,15 @@ class Coordinates
      */
     public static function text2Float($textCoordinate) {
         // regex to extract parts needed for calcuation
-        $regex = "/([+-]?)(\d{1,3})\s*°\s*(?:(\d{1,2})\s*'\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*\"\s*)?/";
+        $regex = "/([+-]?)\s*(\d{1,3})\s*[°d ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?/u";
 
         $matches = array();
         preg_match_all($regex, $textCoordinate, $matches);
+
+        // ensure entry is valid
+        if ($matches[2][0] > 359 || $matches[3][0] > 59 || $matches[4][0] >= 60) {
+            return false;
+        }
 
         $floatCoordinate = ((float)$matches[2][0]) +
                            ((float)$matches[3][0]) / 60 +

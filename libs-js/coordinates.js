@@ -8,7 +8,7 @@
  */
 function AstronomyLibs_Coordinates_text2Float(text_coordinate) {
     // regex to extract parts needed for calcuation
-    var regex = new RegExp(/([+-]?)(\d{1,3})\s*°\s*(?:(\d{1,2})\s*'\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*\"\s*)?/);
+    var regex = new RegExp(/([+-]?)\s*(\d{1,3})\s*[°d ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?/);
 
     var matches = regex.exec(text_coordinate);
 
@@ -18,6 +18,11 @@ function AstronomyLibs_Coordinates_text2Float(text_coordinate) {
 
     if (isNaN(matches[4])) {
         matches[4] = 0;
+    }
+
+    // ensure entry is valid
+    if (matches[2] > 359 || matches[3] > 59 || matches[4] >= 60) {
+        return NaN;
     }
 
     var float_coordinate = parseFloat(matches[2]) +
