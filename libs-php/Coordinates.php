@@ -3,9 +3,14 @@ namespace mpopp75\AstronomyLibs;
 
 class Coordinates
 {
-    /* TextToFloat($textCoordinates)
-     * get float representation of coordinates like +19°10'49.0"
-     * i.e. 19.180277778
+    /**
+     * text2Float($textCoordinates)
+     *
+     * get float representation of coordinates
+     *
+     * @param string $textCoordinate text form of coordinates (e.g. +19°10'49.0")
+     * @author Markus Popp <git@mpopp.net>
+     * @return float $floatCoordinate float representation (e.g. 19.180277778)
      */
     public static function text2Float($textCoordinate) {
         // regex to extract parts needed for calcuation
@@ -26,6 +31,16 @@ class Coordinates
         return $floatCoordinate;
     }
 
+    /**
+     * float2Text($floatCoordinate, $decimals)
+     *
+     * get text representation of coordinates
+     *
+     * @param float $floatCoordinate coordinates as float value  (e.g. -19.180277778)
+     * @param int $decimals number of decimals to display for arcseconds; default is 1
+     * @author Markus Popp <git@mpopp.net>
+     * @return string $textCoordinate text representation (e.g. -19°10'49.0")
+     */
     public static function float2Text($floatCoordinate, $decimals = 1) {
         $degrees = (int)$floatCoordinate;
 
