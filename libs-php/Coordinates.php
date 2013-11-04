@@ -14,7 +14,7 @@ class Coordinates
      */
     public static function text2Float($textCoordinate) {
         // regex to extract parts needed for calcuation
-        $regex = "/([+-]?)(\d{1,2})°(\d{1,2})'(\d{1,2}(?:\.\d*))\"?/";
+        $regex = "/([+-]?)(\d{1,3})\s*°\s*(?:(\d{1,2})\s*'\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*\"\s*)?/";
 
         $matches = array();
         preg_match_all($regex, $textCoordinate, $matches);
