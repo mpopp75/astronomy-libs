@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AstronomyLibs::Coordinates Examples (PHP)</title>
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="shortcut icon" href="../favicon/moon.png">
+</head>
+<body>
+<form>
+    <table>
+        <tbody>
+            <tr>
+                <td>Float Coordinate</td>
+                <td>Text Coordinate</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="floatcoordinates" autofocus oninput="updateFloat2Text()" placeholder="Float"></td>
+                <td><input type="text" id="textcoordinates" oninput="updateText2Float()" placeholder="Text"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+var floatcoordinates = document.getElementById('floatcoordinates');
+var textcoordinates  = document.getElementById('textcoordinates');
+
+function updateFloat2Text() {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "coordinates.ajax.php", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("float2text=" + floatcoordinates.value);
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            textcoordinates.value = xmlhttp.responseText;
+        } else {
+            textcoordinates.innerHTML = "invalid";
+        }
+    }
+}
+
+function updateText2Float() {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "coordinates.ajax.php", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("text2float=" + textcoordinates.value);
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            floatcoordinates.value = xmlhttp.responseText;
+        } else {
+            floatcoordinates.innerHTML = "invalid";
+        }
+    }
+}
+</script>
+</body>
+</html>
