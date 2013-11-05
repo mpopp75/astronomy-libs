@@ -5,7 +5,7 @@
  *
  * @author Markus Popp <git@mpopp.net>
  */
-function AstronomyLibs_Template_int2Float(number) {
+function AstronomyLibs_Template_doSomething(number) {
     var outvar = parseFloat(number.toString());
 
     return outvar;

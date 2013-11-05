@@ -6,28 +6,37 @@
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="shortcut icon" href="../favicon/moon.png">
 <script src="../libs-js/_template.js"></script>
+<style>
+#floatval {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    color: #000000;
+}
+</style>
 </head>
 <body>
 <form>
     <table>
+        <thead>
+            <tr>
+                <td>Input</td>
+                <td>Float</td>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <td>In:</td>
-                <td><input type="text" id="invalue" autofocus oninput="updateOut()"></td>
-            </tr>
-            <tr>
-                <td>Out:</td>
-                <td><input type="text" id="outvalue"></td>
+                <td><input type="text" id="inputval" autofocus oninput="updateDoSomething()" placeholder="Input"></td>
+                <td><input type="text" id="floatval" placeholder="Float" disabled></td>
             </tr>
         </tbody>
     </table>
 </form>
 <script>
-var in_value  = document.getElementById('invalue');
-var out_value = document.getElementById('outvalue');
+var inputval = document.getElementById('inputval');
+var floatval = document.getElementById('floatval');
 
-function updateOut() {
-    out_value.value = AstronomyLibs_Template_int2Float(in_value.value);
+function updateDoSomething() {
+    floatval.value = AstronomyLibs_Template_doSomething(inputval.value);
 }
 </script>
 </body>
