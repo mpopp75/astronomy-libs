@@ -26,25 +26,31 @@
             <tr>
                 <td><input type="text" id="floatcoordinates" autofocus oninput="updateFloat2Text()" placeholder="Float"></td>
                 <td><input type="text" id="textcoordinates" oninput="updateText2Float()" placeholder="Text"></td>
-                <td><select id="format">
+                <td><select id="format" onchange="updateLastChanged()">
                         <option value="symbols" selected>10° 20' 30.4"</option>
                         <option value="spaces">10 20 30.4</option>
                         <option value="dms">10d 20m 30.4s</option>
                         <option value="hms">10h 20m 30.4s</option>
                     </select>
                 </td>
-                <td><input type="number" id="decimals" value=""></td>
+                <td><input type="number" id="decimals" value="" oninput="updateLastChanged()"></td>
             </tr>
         </tbody>
     </table>
 </form>
 <script>
+// set input fields
 var floatcoordinates = document.getElementById('floatcoordinates');
 var textcoordinates  = document.getElementById('textcoordinates');
 var format           = document.getElementById('format');
 var decimals         = document.getElementById('decimals');
 
+// set variable which of float or text field was updated last
+var last_updated = null;
+
 function updateFloat2Text() {
+    last_updated = "f2t";
+
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "coordinates.ajax.php", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -59,6 +65,8 @@ function updateFloat2Text() {
 }
 
 function updateText2Float() {
+    last_updated = "t2f";
+
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "coordinates.ajax.php", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -69,6 +77,17 @@ function updateText2Float() {
         } else {
             floatcoordinates.innerHTML = "invalid";
         }
+    }
+}
+
+/* if format or decimals are changed, update either
+   float or text input field depending on which was
+   last updated */
+function updateLastChanged() {
+    if (last_updated == "f2t") {
+        updateFloat2Text();
+    } else if (last_updated == "t2f") {
+        updateText2Float();
     }
 }
 </script>
