@@ -5,6 +5,11 @@
 <title>AstronomyLibs::Coordinates Examples (PHP)</title>
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="shortcut icon" href="../favicon/moon.png">
+<style>
+#decimals {
+    width: 50px;
+}
+</style>
 </head>
 <body>
 <form>
@@ -13,12 +18,22 @@
             <tr>
                 <td>Float Coordinate</td>
                 <td>Text Coordinate</td>
+                <td>Format</td>
+                <td>Decimals</td>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><input type="text" id="floatcoordinates" autofocus oninput="updateFloat2Text()" placeholder="Float"></td>
                 <td><input type="text" id="textcoordinates" oninput="updateText2Float()" placeholder="Text"></td>
+                <td><select id="format">
+                        <option value="symbols" selected>10° 20' 30.4"</option>
+                        <option value="spaces">10 20 30.4</option>
+                        <option value="dms">10d 20m 30.4s</option>
+                        <option value="hms">10h 20m 30.4s</option>
+                    </select>
+                </td>
+                <td><input type="number" id="decimals" value=""></td>
             </tr>
         </tbody>
     </table>
@@ -26,12 +41,14 @@
 <script>
 var floatcoordinates = document.getElementById('floatcoordinates');
 var textcoordinates  = document.getElementById('textcoordinates');
+var format           = document.getElementById('format');
+var decimals         = document.getElementById('decimals');
 
 function updateFloat2Text() {
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "coordinates.ajax.php", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xmlhttp.send("float2text=" + floatcoordinates.value);
+    xmlhttp.send("float2text=" + floatcoordinates.value + "&format=" + format.value + "&decimals=" + decimals.value);
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             textcoordinates.value = xmlhttp.responseText;
@@ -45,7 +62,7 @@ function updateText2Float() {
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "coordinates.ajax.php", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xmlhttp.send("text2float=" + textcoordinates.value);
+    xmlhttp.send("text2float=" + textcoordinates.value + "&decimals=" + decimals.value);
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             floatcoordinates.value = xmlhttp.responseText;
