@@ -8,7 +8,7 @@
  */
 function AstronomyLibs_Coordinates_text2Float(text_coordinate) {
     // regex to extract parts needed for calcuation
-    var regex = new RegExp(/([+-]?)\s*(\d{1,3})\s*[°d ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?/);
+    var regex = new RegExp(/([+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?/);
 
     var matches = regex.exec(text_coordinate);
 
