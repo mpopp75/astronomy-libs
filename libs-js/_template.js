@@ -1,12 +1,14 @@
 /*
- * AstronomyLibs_Template_int2Float(number)
+ * AstronomyLibs_Template_doSomething(input)
  *
- * convert integer to float
+ * Description
  *
- * @author Markus Popp <git@mpopp.net>
+ * param: mixed input input value
+ * author: Markus Popp <git@mpopp.net>
+ * return float    the float representation of input
  */
-function AstronomyLibs_Template_doSomething(number) {
-    var outvar = parseFloat(number.toString());
+function AstronomyLibs_Template_doSomething(input) {
+    var outvar = parseFloat(input.toString());
 
     return outvar;
 }

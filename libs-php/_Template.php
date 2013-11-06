@@ -10,7 +10,7 @@ class Template
      *
      * @param mixed $in input value
      * @author Markus Popp <git@mpopp.net>
-     * @return float $out the float representation of $in
+     * @return float    the float representation of $in
      */
     public static function doSomething($in) {
 
