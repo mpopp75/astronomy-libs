@@ -6,6 +6,11 @@
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="shortcut icon" href="../favicon/moon.png">
 <script src="../libs-js/coordinates.js"></script>
+<style>
+#decimals {
+    width: 50px;
+}
+</style>
 </head>
 <body>
 <form>
@@ -14,12 +19,22 @@
             <tr>
                 <td>Float Coordinate</td>
                 <td>Text Coordinate</td>
+                <td>Format</td>
+                <td>Decimals</td>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><input type="text" id="floatcoordinates" autofocus oninput="updateFloat2Text()" placeholder="Float"></td>
                 <td><input type="text" id="textcoordinates" oninput="updateText2Float()" placeholder="Text"></td>
+                <td><select id="format">
+                        <option value="symbols" selected>10° 20' 30.4"</option>
+                        <option value="spaces">10 20 30.4</option>
+                        <option value="dms">10d 20m 30.4s</option>
+                        <option value="hms">10h 20m 30.4s</option>
+                    </select>
+                </td>
+                <td><input type="number" id="decimals" value=""></td>
             </tr>
         </tbody>
     </table>
@@ -27,13 +42,23 @@
 <script>
 var floatcoordinates = document.getElementById('floatcoordinates');
 var textcoordinates  = document.getElementById('textcoordinates');
+var format           = document.getElementById('format');
+var decimals         = document.getElementById('decimals');
 
 function updateFloat2Text() {
-    textcoordinates.value = AstronomyLibs_Coordinates_float2Text(floatcoordinates.value);
+    if (decimals.value == "") {
+        textcoordinates.value = AstronomyLibs_Coordinates_float2Text(floatcoordinates.value, format.value);
+    } else {
+        textcoordinates.value = AstronomyLibs_Coordinates_float2Text(floatcoordinates.value, format.value, decimals.value);
+    }
 }
 
 function updateText2Float() {
-    floatcoordinates.value = AstronomyLibs_Coordinates_text2Float(textcoordinates.value);
+    if (decimals.value == "") {
+        floatcoordinates.value = AstronomyLibs_Coordinates_text2Float(textcoordinates.value);
+    } else {
+        floatcoordinates.value = AstronomyLibs_Coordinates_text2Float(textcoordinates.value, decimals.value);
+    }
 }
 </script>
 </body>
