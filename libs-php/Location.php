@@ -17,12 +17,12 @@ class Location extends Coordinates
      * @author Markus Popp <git@mpopp.net>
      */
     public function __construct($latitude, $longitude) {
-        if (! is_float($latitude)) {
+        if (! is_integer($latitude) && ! is_double($latitude)) {
             $latitude = parent::text2Float($latitude);
         }
 
-        if (! is_float($longitude)) {
-            $longitude = parent::float2Text($longitude);
+        if (! is_integer($longitude) && ! is_double($longitude)) {
+            $longitude = parent::text2Float($longitude);
         }
 
         $this->latitude  = (float)$latitude;
