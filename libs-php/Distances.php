@@ -1,5 +1,6 @@
 <?php
 namespace mpopp75\AstronomyLibs;
+require_once 'Location.php';
 
 class Distances
 {
@@ -14,6 +15,36 @@ class Distances
 
     // parsecs to light years
     const PC2LY    = 3.26156;
+
+    // Earth radius in kilometers
+    const EARTH_RADIUS = 6371;
+
+    /**
+     * distanceBetween($location1, $location2)
+     *
+     * calculates distance in kilometers between location 1 and location 2
+     *
+     * @param Location $location1 Location object
+     * @param Location $location2 Location object
+     * @author Markus Popp <git@mpopp.net>
+     * @return float   distance between location 1 and location 2 in kilometers
+     */
+    public static function distanceBetween($location1, $location2) {
+        $location1Coordinates = $location1->getLocation();
+        $location2Coordinates = $location2->getLocation();
+        $lat1 = $location1Coordinates['latitude'];
+        $lon1 = $location1Coordinates['longitude'];
+        $lat2 = $location2Coordinates['latitude'];
+        $lon2 = $location2Coordinates['longitude'];
+
+        $dLat = $lat2 - $lat1;
+        $dLon = $lon2 - $lon1;
+
+        $a = (sin($dLat / 2))^2 + cos($lat1) * cos($lat2) * (sin($dLon / 2))^2;
+        $c = 2 * atan(sqrt($a), sqrt(1 - $a));
+
+        return $c * self::EARTH_RADIUS;
+    }
 
     /**
      * miles2km($miles)
