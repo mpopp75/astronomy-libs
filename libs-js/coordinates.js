@@ -2,7 +2,7 @@
  * AstronomyLibs_Coordinates_float2Text(float_coordinate, decimals)
  *
  * get text representation of coordinates like 19.180277778
- * i.e. +19°10'49.0"; $decimals allows to set the number of
+ * i.e. +19° 10' 49.0"; $decimals allows to set the number of
  * arcsecond decimals (1 being the default)
  *
  * param: float float_coordinate coordinates as float value  (e.g. -19.180277778)
