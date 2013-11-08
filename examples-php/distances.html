@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AstronomyLibs::Distances Examples (PHP)</title>
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="shortcut icon" href="../favicon/moon.png">
+<style>
+</style>
+</head>
+<body>
+<form>
+    <table>
+        <thead>
+            <tr>
+                <td>Kilometers</td>
+                <td>Miles</td>
+                <td>Astronomical Units</td>
+                <td>Light Years</td>
+                <td>Parsecs</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" id="km" autofocus oninput="updateDistances('km')" placeholder="Kilometers"></td>
+                <td><input type="text" id="mi" autofocus oninput="updateDistances('mi')" placeholder="Miles"></td>
+                <td><input type="text" id="au" autofocus oninput="updateDistances('au')" placeholder="Astronomical Units"></td>
+                <td><input type="text" id="ly" autofocus oninput="updateDistances('ly')" placeholder="Light Years"></td>
+                <td><input type="text" id="pc" autofocus oninput="updateDistances('pc')" placeholder="Parsecs"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+// set input fields
+var km = document.getElementById('km');
+var mi = document.getElementById('mi');
+var au = document.getElementById('au');
+var ly = document.getElementById('ly');
+var pc = document.getElementById('pc');
+
+function updateDistances(field) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "distances.ajax.php", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("field=" + field + "&value=" + eval(field).value);
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            // parse JSON response to Javascript array
+            var response = JSON.parse(xmlhttp.responseText);
+            km.value = response.km;
+            mi.value = response.mi;
+            au.value = response.au;
+            ly.value = response.ly;
+            pc.value = response.pc;
+        } else {
+            km.value = "Error";
+            mi.value = "Error";
+            au.value = "Error";
+            ly.value = "Error";
+            pc.value = "Error";
+        }
+    }
+}
+</script>
+</body>
+</html>
