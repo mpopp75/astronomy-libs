@@ -17,12 +17,13 @@ class Distances
     const PC2LY    = 3.26156;
 
     // Earth radius in kilometers
-    const EARTH_RADIUS = 6371;
+    const EARTH_RADIUS = 6371.009;
 
     /**
      * distanceBetween($location1, $location2)
      *
      * calculates distance in kilometers between location 1 and location 2
+     * formula used from http://en.wikipedia.org/wiki/Great-circle_distance#Formulas
      *
      * @param Location $location1 Location object
      * @param Location $location2 Location object
@@ -37,13 +38,9 @@ class Distances
         $lat2 = $location2Coordinates['latitude'];
         $lon2 = $location2Coordinates['longitude'];
 
-        $dLat = $lat2 - $lat1;
-        $dLon = $lon2 - $lon1;
-
-        $a = (sin($dLat / 2))^2 + cos($lat1) * cos($lat2) * (sin($dLon / 2))^2;
-        $c = 2 * atan(sqrt($a), sqrt(1 - $a));
-
-        return $c * self::EARTH_RADIUS;
+        return self::EARTH_RADIUS *
+                (acos(sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +
+                      cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad(abs($lon2 - $lon1)))));
     }
 
     /**
