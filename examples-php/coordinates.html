@@ -59,7 +59,7 @@ function updateFloat2Text() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             textcoordinates.value = xmlhttp.responseText;
         } else {
-            textcoordinates.innerHTML = "invalid";
+            textcoordinates.value = "error";
         }
     }
 }
@@ -75,7 +75,7 @@ function updateText2Float() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             floatcoordinates.value = xmlhttp.responseText;
         } else {
-            floatcoordinates.innerHTML = "invalid";
+            floatcoordinates.value = "error";
         }
     }
 }
