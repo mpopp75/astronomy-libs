@@ -5,7 +5,7 @@ require_once 'Location.php';
 class Distances
 {
     // miles to kilometers
-    const MILES2KM = 1.60934;
+    const MI2KM = 1.60934;
 
     // astronomical units to kilometers
     const AU2KM    = 149597870.7;
@@ -47,20 +47,20 @@ class Distances
     }
 
     /**
-     * miles2km($miles)
+     * mi2km($mi)
      *
      * convert miles to kilometers
      *
-     * @param float $miles value in miles
+     * @param float $mi value in miles
      * @author Markus Popp <git@mpopp.net>
      * @return float   equivalent value in kilometers
      */
-    public static function miles2km($miles) {
-        return $miles * self::MILES2KM;
+    public static function mi2km($mi) {
+        return $mi * self::MI2KM;
     }
 
     /**
-     * km2miles($km)
+     * km2mi($km)
      *
      * convert kilometers to miles
      *
@@ -68,8 +68,8 @@ class Distances
      * @author Markus Popp <git@mpopp.net>
      * @return float   equivalent value in miles
      */
-    public static function km2miles($km) {
-        return $km / self::MILES2KM;
+    public static function km2mi($km) {
+        return $km / self::MI2KM;
     }
 
     /**
