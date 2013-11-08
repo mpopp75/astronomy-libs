@@ -21,6 +21,15 @@ div#php, div#js {
     margin-bottom: 30px;
 }
 
+div#php li a, div#js li a {
+    text-decoration: none;
+    color: blue;
+}
+
+div#php li a:hover, div#js li a:hover {
+    text-decoration: underline;
+}
+
 div > h1 {
     font-size: 14px;
     border-bottom: 1px solid #CCCCCC;
