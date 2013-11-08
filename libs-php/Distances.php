@@ -147,6 +147,6 @@ class Distances
      * @return float   equivalent value in parsecs
      */
     public static function ly2pc($ly) {
-        return $pc / self::PC2LY;
+        return $ly / self::PC2LY;
     }
 }
