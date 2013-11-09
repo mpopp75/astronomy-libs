@@ -2,8 +2,8 @@
 require_once '../libs-php/Distances.php';
 use mpopp75\AstronomyLibs as alibs;
 
-$field = in_array($_REQUEST['field'], array("km", "mi", "au", "ly", "pc")) ? $_REQUEST['field'] : null;
-$value = (float)$_REQUEST['value'];
+$field = in_array($_POST['field'], array("km", "mi", "au", "ly", "pc")) ? $_POST['field'] : null;
+$value = (float)$_POST['value'];
 
 $km = 0;
 $mi = 0;
