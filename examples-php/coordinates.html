@@ -52,7 +52,7 @@ function updateFloat2Text() {
     last_updated = "f2t";
 
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "coordinates.ajax.php", true);
+    xmlhttp.open("POST", "../examples-php-ajax/coordinates.ajax.php", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send("float2text=" + floatcoordinates.value + "&format=" + format.value + "&decimals=" + decimals.value);
     xmlhttp.onreadystatechange = function() {
@@ -68,7 +68,7 @@ function updateText2Float() {
     last_updated = "t2f";
 
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "coordinates.ajax.php", true);
+    xmlhttp.open("POST", "../examples-php-ajax/coordinates.ajax.php", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send("text2float=" + textcoordinates.value + "&decimals=" + decimals.value);
     xmlhttp.onreadystatechange = function() {

@@ -41,7 +41,7 @@ var pc = document.getElementById('pc');
 
 function updateDistances(field) {
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "distances.ajax.php", true);
+    xmlhttp.open("POST", "../examples-php-ajax/distances.ajax.php", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send("field=" + field + "&value=" + eval(field).value);
     xmlhttp.onreadystatechange = function() {
