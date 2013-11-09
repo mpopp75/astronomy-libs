@@ -55,7 +55,7 @@ class Coordinates
      */
     public static function text2Float($textCoordinate, $decimals = null) {
         // regex to extract parts needed for calcuation
-        $regex = "/([+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?/u";
+        $regex = "/([+-NSEW]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([+-NSEW]?)/u";
 
         $matches = array();
         preg_match_all($regex, $textCoordinate, $matches);
@@ -70,7 +70,11 @@ class Coordinates
                            ((float)$matches[4][0]) / 3600;
 
         // if coordinates are negative
-        if ($matches[1][0] == "-") {
+        if ($matches[1][0] == "-" ||
+            $matches[1][0] == "S" ||
+            $matches[1][0] == "W" ||
+            $matches[5][0] == "S" ||
+            $matches[5][0] == "W") {
             $floatCoordinate = -$floatCoordinate;
         }
 
