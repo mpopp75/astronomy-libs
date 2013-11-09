@@ -55,7 +55,7 @@ class Coordinates
      */
     public static function text2Float($textCoordinate, $decimals = null) {
         // regex to extract parts needed for calcuation
-        $regex = "/([+-NSEW]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([+-NSEW]?)/u";
+        $regex = "/([NSEW+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([NSEW+-]?)/u";
 
         $matches = array();
         preg_match_all($regex, $textCoordinate, $matches);

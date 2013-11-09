@@ -57,7 +57,7 @@ function AstronomyLibs_Coordinates_float2Text(float_coordinate, format = "symbol
  */
 function AstronomyLibs_Coordinates_text2Float(text_coordinate, decimals = null) {
     // regex to extract parts needed for calcuation
-    var regex = new RegExp(/([+-NSEW]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([+-NSEW]?)/);
+    var regex = new RegExp(/([NSEW+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([NSEW+-]?)/);
 
     var matches = regex.exec(text_coordinate);
 
