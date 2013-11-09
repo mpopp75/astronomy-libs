@@ -83,5 +83,69 @@ function updateDistances(field) {
     }
 }
 </script>
+<hr>
+<p>Uses the following methods:</p>
+
+<ul>
+    <li>Distances::distanceBetween</li>
+</ul>
+
+<p>Calculates the distance between Location A and Location B based on their geographical coordinates.
+Values can be entered as either float or text (as supported by Coordinates::float2Text).</p>
+
+<form>
+    <table>
+        <thead>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Location A</td>
+                <td>Location B</td>
+            </tr>
+        </thead>
+        <tbody>
+           <tr>
+                <td>Latitude:</td>
+                <td><input type="text" id="lat_a" oninput="calcDistance()"></td>
+                <td><input type="text" id="lat_b" oninput="calcDistance()"></td>
+           </tr>
+           <tr>
+                <td>Longitude:</td>
+                <td><input type="text" id="lon_a" oninput="calcDistance()"></td>
+                <td><input type="text" id="lon_b" oninput="calcDistance()"></td>
+           </tr>
+           <tr>
+                <td>Distance:</td>
+                <td><span id="distance"></span></td>
+                <td>&nbsp;</td>
+           </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+var lat_a    = document.getElementById('lat_a');
+var lon_a    = document.getElementById('lon_a');
+var lat_b    = document.getElementById('lat_b');
+var lon_b    = document.getElementById('lon_b');
+var distance = document.getElementById('distance');
+
+function calcDistance() {
+    if(lat_a != "" &&
+       lat_b != "" &&
+       lon_a != "" &&
+       lon_b != "") {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "../examples-php-ajax/distance-between.ajax.php", true);
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlhttp.send("lata=" + lat_a.value + "&lona=" + lon_a.value + "&latb=" + lat_b.value + "&lonb=" + lon_b.value);
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    distance.innerHTML = Math.floor(xmlhttp.responseText * 100 + .5) / 100 + " km";
+                } else {
+                    distance.innerHTML = "error";
+                }
+            }
+    }
+}
+</script>
 </body>
 </html>
