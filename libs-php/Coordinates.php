@@ -4,7 +4,7 @@ namespace mpopp75\AstronomyLibs;
 class Coordinates
 {
     /**
-     * float2Text($floatCoordinate, $decimals)
+     * float2text($floatCoordinate, $decimals)
      *
      * get text representation of coordinates
      *
@@ -14,7 +14,7 @@ class Coordinates
      * @author Markus Popp <git@mpopp.net>
      * @return string   text representation (e.g. -19° 10' 49.0")
      */
-    public static function float2Text($floatCoordinate,  $format = "symbols", $decimals = 1) {
+    public static function float2text($floatCoordinate,  $format = "symbols", $decimals = 1) {
         $degrees = (int)$floatCoordinate;
 
         $minutesFull = abs((int)$floatCoordinate - $floatCoordinate) * 60;
@@ -44,7 +44,7 @@ class Coordinates
     }
 
     /**
-     * text2Float($textCoordinates)
+     * text2float($textCoordinates)
      *
      * get float representation of coordinates
      *
@@ -53,7 +53,7 @@ class Coordinates
      * @author Markus Popp <git@mpopp.net>
      * @return float    float representation (e.g. 19.180277778)
      */
-    public static function text2Float($textCoordinate, $decimals = null) {
+    public static function text2float($textCoordinate, $decimals = null) {
         $matches = array();
         if (preg_match("/^([NSEW+-])?\s*([0-9.]+)$/", $textCoordinate, $matches)) {
             // input is already a valid float value, return right away

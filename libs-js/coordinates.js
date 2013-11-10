@@ -1,5 +1,5 @@
 /*
- * AstronomyLibs_Coordinates_float2Text(float_coordinate, decimals)
+ * AstronomyLibs_Coordinates_float2text(float_coordinate, decimals)
  *
  * get text representation of coordinates like 19.180277778
  * i.e. +19° 10' 49.0"; $decimals allows to set the number of
@@ -11,7 +11,7 @@
  * author: Markus Popp <git@mpopp.net>
  * return: string   text representation (e.g. -19° 10' 49.0")
  */
-function AstronomyLibs_Coordinates_float2Text(float_coordinate, format = "symbols", decimals = 1) {
+function AstronomyLibs_Coordinates_float2text(float_coordinate, format = "symbols", decimals = 1) {
 
     var degrees = parseInt(float_coordinate);
 
@@ -46,7 +46,7 @@ function AstronomyLibs_Coordinates_float2Text(float_coordinate, format = "symbol
 }
 
 /*
- * AstronomyLibs_Coordinates_text2Float(text_coordinate)
+ * AstronomyLibs_Coordinates_text2float(text_coordinate)
  *
  * get float representation of coordinates like +19° 10' 49.0"
  * i.e. 19.180277778
@@ -55,7 +55,7 @@ function AstronomyLibs_Coordinates_float2Text(float_coordinate, format = "symbol
  * author: Markus Popp <git@mpopp.net>
  * return: float    float representation (e.g. 19.180277778)
  */
-function AstronomyLibs_Coordinates_text2Float(text_coordinate, decimals = null) {
+function AstronomyLibs_Coordinates_text2float(text_coordinate, decimals = null) {
     var regex = new RegExp(/^([NSEW+-])?\s*([0-9.]+)$/);
 
     var matches = regex.exec(text_coordinate);

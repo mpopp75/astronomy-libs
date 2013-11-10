@@ -16,8 +16,8 @@
 <p>Uses the following methods:</p>
 
 <ul>
-    <li>Coordinates::float2Text</li>
-    <li>Coordinates::text2Float</li>
+    <li>Coordinates::float2text</li>
+    <li>Coordinates::text2float</li>
 </ul>
 
 <p>Enter coordinates in either float form (e.g. 19.59475) or text form (e.g. 19° 16' 32.6") and have
@@ -77,9 +77,9 @@ function updateFloat2Text() {
     last_updated = "f2t";
 
     if (decimals.value == "") {
-        textcoordinates.value = AstronomyLibs_Coordinates_float2Text(floatcoordinates.value, format.value);
+        textcoordinates.value = AstronomyLibs_Coordinates_float2text(floatcoordinates.value, format.value);
     } else {
-        textcoordinates.value = AstronomyLibs_Coordinates_float2Text(floatcoordinates.value, format.value, decimals.value);
+        textcoordinates.value = AstronomyLibs_Coordinates_float2text(floatcoordinates.value, format.value, decimals.value);
     }
 }
 
@@ -87,9 +87,9 @@ function updateText2Float() {
     last_updated = "t2f";
 
     if (decimals.value == "") {
-        floatcoordinates.value = AstronomyLibs_Coordinates_text2Float(textcoordinates.value);
+        floatcoordinates.value = AstronomyLibs_Coordinates_text2float(textcoordinates.value);
     } else {
-        floatcoordinates.value = AstronomyLibs_Coordinates_text2Float(textcoordinates.value, decimals.value);
+        floatcoordinates.value = AstronomyLibs_Coordinates_text2float(textcoordinates.value, decimals.value);
     }
 }
 

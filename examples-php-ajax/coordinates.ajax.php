@@ -13,16 +13,16 @@ if (isset($_POST['float2text'])) {
     $floatCoordinate = (float)$_POST['float2text'];
 
     if ($decimals === null) {
-        $textCoordinate = alibs\Coordinates::float2Text($floatCoordinate, $format);
+        $textCoordinate = alibs\Coordinates::float2text($floatCoordinate, $format);
     } else {
-        $textCoordinate = alibs\Coordinates::float2Text($floatCoordinate, $format, $decimals);
+        $textCoordinate = alibs\Coordinates::float2text($floatCoordinate, $format, $decimals);
     }
 
     print $textCoordinate;
 } elseif (isset($_POST['text2float'])) {
     $textCoordinate = $_POST['text2float'];
 
-    $floatCoordinate = alibs\Coordinates::text2Float($textCoordinate, $decimals);
+    $floatCoordinate = alibs\Coordinates::text2float($textCoordinate, $decimals);
 
     if ($floatCoordinate !== false) {
         print $floatCoordinate;

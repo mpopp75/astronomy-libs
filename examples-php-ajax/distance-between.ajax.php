@@ -11,19 +11,19 @@ $lonB = isset($_REQUEST['lonb']) ? $_REQUEST['lonb'] : null;
 
 // convert text coordinates to float coordinates
 if (! is_integer($latA) && ! is_double($latA)) {
-    $latA = alibs\Coordinates::text2Float($latA);
+    $latA = alibs\Coordinates::text2float($latA);
 }
 
 if (! is_integer($lonA) && ! is_double($lonA)) {
-    $lonA = alibs\Coordinates::text2Float($lonA);
+    $lonA = alibs\Coordinates::text2float($lonA);
 }
 
 if (! is_integer($latB) && ! is_double($latB)) {
-    $latB = alibs\Coordinates::text2Float($latB);
+    $latB = alibs\Coordinates::text2float($latB);
 }
 
 if (! is_integer($lonB) && ! is_double($lonB)) {
-    $lonB = alibs\Coordinates::text2Float($lonB);
+    $lonB = alibs\Coordinates::text2float($lonB);
 }
 
 // make absolutely sure they are float values

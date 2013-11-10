@@ -18,11 +18,11 @@ class Location extends Coordinates
      */
     public function __construct($latitude, $longitude) {
         if (! is_integer($latitude) && ! is_double($latitude)) {
-            $latitude = parent::text2Float($latitude);
+            $latitude = parent::text2float($latitude);
         }
 
         if (! is_integer($longitude) && ! is_double($longitude)) {
-            $longitude = parent::text2Float($longitude);
+            $longitude = parent::text2float($longitude);
         }
 
         $this->latitude  = (float)$latitude;
