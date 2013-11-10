@@ -54,14 +54,33 @@ class Coordinates
      * @return float    float representation (e.g. 19.180277778)
      */
     public static function text2Float($textCoordinate, $decimals = null) {
+        $matches = array();
+        if (preg_match("/^([NSEW+-])?\s*([0-9.]+)$/", $textCoordinate, $matches)) {
+            // input is already a valid float value, return right away
+
+            // if coordinates are negative
+            if ($matches[1] == "S" ||
+                $matches[1] == "W") {
+                $textCoordinate = -((float)$matches[2]);
+            }
+
+            if ($decimals === null) {
+                return (float)$textCoordinate;
+            } else {
+                return number_format((float)$textCoordinate, $decimals, ".", "");
+            }
+        }
+
         // regex to extract parts needed for calcuation
-        $regex = "/([NSEW+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([NSEW+-]?)/u";
+        $regex = "/([NSEW+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m]?\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([NSEW+-]?)/u";
 
         $matches = array();
-        preg_match_all($regex, $textCoordinate, $matches);
+        if (! preg_match_all($regex, $textCoordinate, $matches)) {
+            return false;
+        }
 
-        // ensure entry is valid
-        if ($matches[2][0] > 359 || $matches[3][0] > 59 || $matches[4][0] >= 60) {
+        // ensure arcmins & arcsecs are valid
+        if ($matches[3][0] > 59 || $matches[4][0] >= 60) {
             return false;
         }
 
