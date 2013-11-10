@@ -129,21 +129,23 @@ var lon_b    = document.getElementById('lon_b');
 var distance = document.getElementById('distance');
 
 function calcDistance() {
-    if(lat_a != "" &&
-       lat_b != "" &&
-       lon_a != "" &&
-       lon_b != "") {
+    if(lat_a.value != "" &&
+       lat_b.value != "" &&
+       lon_a.value != "" &&
+       lon_b.value != "") {
             xmlhttp = new XMLHttpRequest();
             xmlhttp.open("POST", "../examples-php-ajax/distance-between.ajax.php", true);
             xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             xmlhttp.send("lata=" + lat_a.value + "&lona=" + lon_a.value + "&latb=" + lat_b.value + "&lonb=" + lon_b.value);
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    distance.innerHTML = Math.floor(xmlhttp.responseText * 100 + .5) / 100 + " km";
+                    distance.innerHTML = xmlhttp.responseText;
                 } else {
                     distance.innerHTML = "error";
                 }
             }
+    } else {
+        distance.innerHTML = "";
     }
 }
 </script>

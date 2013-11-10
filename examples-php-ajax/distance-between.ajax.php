@@ -37,4 +37,6 @@ $locationA = new alibs\Location($latA, $lonA);
 $locationB = new alibs\Location($latB, $lonB);
 
 // calculate distance using mpopp/AstronomyLibs/Distances::distanceBetween method
-print alibs\Distances::distanceBetween($locationA, $locationB);
+$distanceKm = alibs\Distances::distanceBetween($locationA, $locationB);
+$distanceMi = alibs\Distances::km2mi($distanceKm);
+print number_format($distanceKm, 2, ".", ",") . " km (" . number_format($distanceMi, 2, ".", ",") . " mi)";
