@@ -56,10 +56,30 @@ function AstronomyLibs_Coordinates_float2Text(float_coordinate, format = "symbol
  * return: float    float representation (e.g. 19.180277778)
  */
 function AstronomyLibs_Coordinates_text2Float(text_coordinate, decimals = null) {
-    // regex to extract parts needed for calcuation
-    var regex = new RegExp(/([NSEW+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m ]\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([NSEW+-]?)/);
+    var regex = new RegExp(/^([NSEW+-])?\s*([0-9.]+)$/);
 
     var matches = regex.exec(text_coordinate);
+
+    if (matches) {
+        // input is already a valid float value, return right away
+
+        // if coordinates are negative
+        if (matches[1] == "S" ||
+            matches[1] == "W") {
+            text_coordinate = -(parseFloat(matches[2]));
+        }
+
+        if (decimals === null) {
+            return parseFloat(text_coordinate);
+        } else {
+            return parseInt(text_coordinate * Math.pow(10, decimals) + .5) / Math.pow(10, decimals);
+        }
+    }
+
+    // regex to extract parts needed for calcuation
+    regex = new RegExp(/([NSEW+-]?)\s*(\d{1,3})\s*[°dh ]\s*(?:(\d{1,2})\s*['m]?\s*)?(?:(\d{1,2}(?:\.\d*)?)\s*[\"s]?\s*)?\s*([NSEW+-]?)/);
+
+    matches = regex.exec(text_coordinate);
 
     if (isNaN(matches[3])) {
         matches[3] = 0;
@@ -70,7 +90,7 @@ function AstronomyLibs_Coordinates_text2Float(text_coordinate, decimals = null) 
     }
 
     // ensure entry is valid
-    if (matches[2] > 359 || matches[3] > 59 || matches[4] >= 60) {
+    if (matches[3] > 59 || matches[4] >= 60) {
         return NaN;
     }
 
