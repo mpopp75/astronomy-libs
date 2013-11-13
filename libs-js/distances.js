@@ -22,6 +22,7 @@ const EARTH_RADIUS = 6371.009;
  * param: array location1 Location array as created by location.js
  * param: array location2 Location array as created by location.js
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   distance between location 1 and location 2 in kilometers
  */
 function AstronomyLibs_Distances_distanceBetween(location1, location2) {
@@ -44,6 +45,7 @@ function AstronomyLibs_Distances_distanceBetween(location1, location2) {
  *
  * param: float deg degrees
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   degrees converted to radiants
  */
 function deg2rad(deg) {
@@ -57,6 +59,7 @@ function deg2rad(deg) {
  *
  * param: float mi value in miles
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in kilometers
  */
 function AstronomyLibs_Distances_mi2km(mi) {
@@ -70,6 +73,7 @@ function AstronomyLibs_Distances_mi2km(mi) {
  *
  * param: float km value in kilometers
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in miles
  */
 function AstronomyLibs_Distances_km2mi(km) {
@@ -83,6 +87,7 @@ function AstronomyLibs_Distances_km2mi(km) {
  *
  * param: float au value in astronomical units
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in kilometers
  */
 function AstronomyLibs_Distances_au2km(au) {
@@ -96,6 +101,7 @@ function AstronomyLibs_Distances_au2km(au) {
  *
  * param: float km value in astronomical units
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in astronomical units
  */
 function AstronomyLibs_Distances_km2au(km) {
@@ -109,6 +115,7 @@ function AstronomyLibs_Distances_km2au(km) {
  *
  * param: float ly value in light years
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in astronomical units
  */
 function AstronomyLibs_Distances_ly2au(ly) {
@@ -122,6 +129,7 @@ function AstronomyLibs_Distances_ly2au(ly) {
  *
  * param: float au value in astronomical units
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in light years
  */
 function AstronomyLibs_Distances_au2ly(au) {
@@ -135,6 +143,7 @@ function AstronomyLibs_Distances_au2ly(au) {
  *
  * param: float pc value in parsecs
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in light years
  */
 function AstronomyLibs_Distances_pc2ly(pc) {
@@ -148,6 +157,7 @@ function AstronomyLibs_Distances_pc2ly(pc) {
  *
  * param: float ly value in light years
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   equivalent value in parsecs
  */
 function AstronomyLibs_Distances_ly2pc(ly) {

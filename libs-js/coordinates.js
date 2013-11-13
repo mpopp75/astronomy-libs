@@ -9,6 +9,7 @@
  * param: string format which format to output
  * param: int decimals number of decimals to display for arcseconds; default is 1
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: string   text representation (e.g. -19° 10' 49.0")
  */
 function AstronomyLibs_Coordinates_float2text(float_coordinate, format = "symbols", decimals = 1) {
@@ -53,6 +54,7 @@ function AstronomyLibs_Coordinates_float2text(float_coordinate, format = "symbol
  * param: string textCoordinate text form of coordinates (e.g. +19° 10' 49.0")
  * param: int decimals number of decimals
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float    float representation (e.g. 19.180277778)
  */
 function AstronomyLibs_Coordinates_text2float(text_coordinate, decimals = null) {

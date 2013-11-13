@@ -28,6 +28,7 @@ class Distances
      * @param Location $location1 Location object
      * @param Location $location2 Location object
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   distance between location 1 and location 2 in kilometers
      */
     public static function distanceBetween($location1, $location2) {
@@ -50,6 +51,7 @@ class Distances
      *
      * @param float $mi value in miles
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in kilometers
      */
     public static function mi2km($mi) {
@@ -63,6 +65,7 @@ class Distances
      *
      * @param float $km value in kilometers
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in miles
      */
     public static function km2mi($km) {
@@ -76,6 +79,7 @@ class Distances
      *
      * @param float $au value in astronomical units
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in kilometers
      */
     public static function au2km($au) {
@@ -89,6 +93,7 @@ class Distances
      *
      * @param float $km value in astronomical units
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in astronomical units
      */
     public static function km2au($km) {
@@ -102,6 +107,7 @@ class Distances
      *
      * @param float $ly value in light years
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in astronomical units
      */
     public static function ly2au($ly) {
@@ -115,6 +121,7 @@ class Distances
      *
      * @param float $au value in astronomical units
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in light years
      */
     public static function au2ly($au) {
@@ -128,6 +135,7 @@ class Distances
      *
      * @param float $pc value in parsecs
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in light years
      */
     public static function pc2ly($pc) {
@@ -141,6 +149,7 @@ class Distances
      *
      * @param float $ly value in light years
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float   equivalent value in parsecs
      */
     public static function ly2pc($ly) {

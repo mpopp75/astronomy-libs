@@ -15,6 +15,7 @@ class Location extends Coordinates
      * @param mixed $latitude latitude in any format supported by Coordinates class
      * @param mixed $longitude longitude in any format supported by Coordinates class
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      */
     public function __construct($latitude, $longitude) {
         if (! is_integer($latitude) && ! is_double($latitude)) {
@@ -35,6 +36,7 @@ class Location extends Coordinates
      * returns array containing latitude/longitude
      *
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return array    array containing latitude and longitude
      */
     public function getLocation() {

@@ -12,6 +12,7 @@ class Coordinates
      * @param string $format which format to output
      * @param int $decimals number of decimals to display for arcseconds; default is 1
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return string   text representation (e.g. -19° 10' 49.0")
      */
     public static function float2text($floatCoordinate,  $format = "symbols", $decimals = 1) {
@@ -51,6 +52,7 @@ class Coordinates
      * @param string $textCoordinate text form of coordinates (e.g. +19° 10' 49.0")
      * @param int $decimals number of decimals
      * @author Markus Popp <git@mpopp.net>
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
      * @return float    float representation (e.g. 19.180277778)
      */
     public static function text2float($textCoordinate, $decimals = null) {

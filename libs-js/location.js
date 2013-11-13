@@ -6,6 +6,7 @@
  * param: mixed latitude latitude in any format supported by Coordinates class
  * param: mixed longitude longitude in any format supported by Coordinates class
  * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
  */
 function AstronomyLibs_Location(latitude, longitude) {
 
