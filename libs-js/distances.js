@@ -19,25 +19,35 @@ const EARTH_RADIUS = 6371.009;
  * calculates distance in kilometers between location 1 and location 2
  * formula used from http://en.wikipedia.org/wiki/Great-circle_distance#Formulas
  *
- * param: Location location1 Location object
- * param: Location location2 Location object
+ * param: array location1 Location array as created by location.js
+ * param: array location2 Location array as created by location.js
  * author: Markus Popp <git@mpopp.net>
  * return: float   distance between location 1 and location 2 in kilometers
  */
 function AstronomyLibs_Distances_distanceBetween(location1, location2) {
 
-    /*
-        $location1Coordinates = $location1->getLocation();
-        $location2Coordinates = $location2->getLocation();
-        $lat1 = $location1Coordinates['latitude'];
-        $lon1 = $location1Coordinates['longitude'];
-        $lat2 = $location2Coordinates['latitude'];
-        $lon2 = $location2Coordinates['longitude'];
+    var lat1 = location1.latitude;
+    var lon1 = location1.longitude;
+    var lat2 = location2.latitude;
+    var lon2 = location2.longitude;
 
-        return self::EARTH_RADIUS *
-               (acos(sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +
-                     cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad(abs($lon2 - $lon1)))));
-    */
+    return EARTH_RADIUS *
+        Math.acos(Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) +
+                  Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.cos(deg2rad(Math.abs(lon2 - lon1))));
+}
+
+/*
+ * deg2rad(deg)
+ *
+ * converts degrees to radiants
+ *
+ * param: float deg degrees
+ * author: Markus Popp <git@mpopp.net>
+ * return: float   degrees converted to radiants
+ */
+function deg2rad(deg) {
+    return (deg / 180) * Math.PI;
 }
 
 /*

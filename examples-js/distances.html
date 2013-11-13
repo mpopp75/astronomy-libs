@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../css/examples.css">
 <link rel="shortcut icon" href="../favicon/moon.png">
+<script src="../libs-js/coordinates.js"></script> <!-- required by location.js -->
+<script src="../libs-js/location.js"></script>
 <script src="../libs-js/distances.js"></script>
 </head>
 <body>
@@ -143,7 +145,20 @@ var lon_b    = document.getElementById('lon_b');
 var distance = document.getElementById('distance');
 
 function calcDistance() {
+    if(lat_a.value != "" &&
+       lat_b.value != "" &&
+       lon_a.value != "" &&
+       lon_b.value != "") {
+        var location_a = AstronomyLibs_Location(lat_a.value, lon_a.value);
+        var location_b = AstronomyLibs_Location(lat_b.value, lon_b.value);
 
+        var distanceKm = AstronomyLibs_Distances_distanceBetween(location_a, location_b);
+        var distanceMi = AstronomyLibs_Distances_km2mi(distanceKm);
+
+        distance.innerHTML = parseInt(distanceKm * 100 + .5) / 100 + " km (" + parseInt(distanceMi * 100 + .5) / 100 + " mi)";
+    } else {
+        distance.innerHTML = "";
+    }
 }
 </script>
 </body>
