@@ -10,7 +10,7 @@ class Location extends Coordinates
     /**
      * __construct($latitude, $longitude)
      *
-     * convert miles to kilometers
+     * stores latitude and longitude of a location
      *
      * @param mixed $latitude latitude in any format supported by Coordinates class
      * @param mixed $longitude longitude in any format supported by Coordinates class
