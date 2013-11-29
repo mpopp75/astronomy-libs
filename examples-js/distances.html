@@ -104,6 +104,8 @@ function updateDistances(field) {
 
 <ul>
     <li>AstronomyLibs_Distances_distanceBetween</li>
+    <li>AstronomyLibs_Location</li>
+    <li>AstronomyLibs_Location_Current</li>
 </ul>
 
 <p>Calculates the distance between Location A and Location B based on their geographical coordinates.
@@ -116,6 +118,7 @@ Values can be entered as either float or text (as supported by Coordinates::floa
                 <td>&nbsp;</td>
                 <td>Latitude</td>
                 <td>Longitude</td>
+                <td>&nbsp;</td>
             </tr>
         </thead>
         <tbody>
@@ -123,15 +126,18 @@ Values can be entered as either float or text (as supported by Coordinates::floa
                 <td>Location A:</td>
                 <td><input type="text" id="lat_a" oninput="calcDistance()"></td>
                 <td><input type="text" id="lon_a" oninput="calcDistance()"></td>
+                <td><button type="button" onclick="getCurrentLocation()">Get Current Location</button>
            </tr>
            <tr>
                 <td>Location B:</td>
                 <td><input type="text" id="lat_b" oninput="calcDistance()"></td>
                 <td><input type="text" id="lon_b" oninput="calcDistance()"></td>
+                <td>&nbsp;</td>
            </tr>
            <tr>
                 <td>Distance:</td>
                 <td><span id="distance"></span></td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
            </tr>
         </tbody>
@@ -159,6 +165,13 @@ function calcDistance() {
     } else {
         distance.innerHTML = "";
     }
+}
+
+function getCurrentLocation() {
+    AstronomyLibs_Location_Current(function() {
+        lat_a.value = AstronomyLibs_Coordinates_float2text(this.latitude);
+        lon_a.value = AstronomyLibs_Coordinates_float2text(this.longitude);
+    });
 }
 </script>
 </body>
