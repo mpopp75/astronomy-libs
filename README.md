@@ -1,9 +1,9 @@
 Astronomy Libraries
 ===================
 
-This repository contains PHP and Javascript libraries useful for calculations needed for astronomy.
+This repository contains PHP and Javascript libraries useful for calculations needed for astronomy. Since the Earth is an astronomical body too (surprise!) and many astronomical calculations require geographical parameters, a good amount of geographical libraries are included as well.
 
-PHP libraries are stored in the libs-php directory, Javascript libraries in the libs-js directory. There are examples how to use each of the libraries in the corresponding examples-xxx directories. This is built in the form of a little website, the entry point being index.html in the root directory. A live version can be found at http://astronomy-libs.mpopp.net
+PHP libraries are stored in the libs-php directory, Javascript libraries in the libs-js directory. There are examples how to use each of the libraries in the corresponding examples-xxx directories. This is built in the form of a little website, the entry point being index.html in the root directory. A live version can be found at [http://astronomy-libs.mpopp.net](http://astronomy-libs.mpopp.net)
 
 In most cases, PHP and Javascript libraries with the same name (e.g. Coordinates.php and coordinates.js) are (mostly) equivalents of each other, but there may be exceptions.
 
@@ -36,4 +36,4 @@ The Javascript version also contains a function to obtain the geographical locat
 
 ### Simbad (PHP)
 
-Simbard provides methods to query the SIMBAD Astronomical Database (http://simbad.u-strasbg.fr/simbad/) using their web services at http://cdsws.u-strasbg.fr/axis/services/Sesame?wsdl
+Simbard provides methods to query the SIMBAD Astronomical Database ([http://simbad.u-strasbg.fr/simbad/](http://simbad.u-strasbg.fr/simbad/)) using their web services at http://cdsws.u-strasbg.fr/axis/services/Sesame?wsdl
