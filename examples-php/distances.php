@@ -10,6 +10,8 @@
 <script src="../libs-js/location.js"></script>
 </head>
 <body>
+<?php include '../page_header.inc.php'; ?>
+
 <h1>Distances</h1>
 
 <h2>Namespace: mpopp75\AstronomyLibs</h2>

@@ -11,6 +11,8 @@
 <script src="../libs-js/distances.js"></script>
 </head>
 <body>
+<?php include '../page_header.inc.php'; ?>
+
 <h1>Distances</h1>
 
 <p>Uses the following functions:</p>

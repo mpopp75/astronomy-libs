@@ -1,13 +1,41 @@
 /* Default CSS file */
 @import url(http://fonts.googleapis.com/css?family=Nunito:700,300,400&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Wendy+One);
 
 body {
     margin: 50px;
     font-family: 'Nunito';
     font-weight: 300;
     font-size: 13px;
+    background-color: #FEFEEE;
 }
 
 img {
     border: 0;
+}
+
+header {
+    height: 128px;
+    background-color: #000000;
+    margin: -50px -50px 20px -50px;
+    color: #FFFFFF;
+}
+
+header > #headerleft {
+    float: left;
+}
+
+header > #headerright > h1 {
+    font-family: 'Wendy One';
+    font-size: 32px;
+}
+
+header > #headerright a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+header > #headerright {
+    padding-top: 10px;
+    padding-left: 200px;
 }

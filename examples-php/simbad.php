@@ -25,6 +25,8 @@ div#output {
 </style>
 </head>
 <body>
+<?php include '../page_header.inc.php'; ?>
+
 <h1>Coordinates</h1>
 
 <h2>Namespace: mpopp75\AstronomyLibs</h2>

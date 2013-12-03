@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>AstronomyLibs::Coordinates Examples (JS)</title>
+<title>AstronomyLibs::Coordinates Examples (PHP)</title>
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../css/examples.css">
 <link rel="shortcut icon" href="../favicon/moon.png">
-<script src="../libs-js/coordinates.js"></script>
 </head>
 <body>
+<?php include '../page_header.inc.php'; ?>
+
 <h1>Coordinates</h1>
 
-<p>Uses the following functions:</p>
+<h2>Namespace: mpopp75\AstronomyLibs</h2>
+
+<p>Uses the following methods:</p>
 
 <ul>
-    <li>AstronomyLibs_Coordinates_float2text</li>
-    <li>AstronomyLibs_Coordinates_text2float</li>
+    <li>Coordinates::float2text</li>
+    <li>Coordinates::text2float</li>
 </ul>
 
 <p>Enter coordinates in either float form (e.g. 19.59475) or text form (e.g. 19° 16' 32.6") and have
@@ -74,20 +77,32 @@ var last_updated = null;
 function updateFloat2Text() {
     last_updated = "f2t";
 
-    if (decimals.value == "") {
-        textcoordinates.value = AstronomyLibs_Coordinates_float2text(floatcoordinates.value, format.value);
-    } else {
-        textcoordinates.value = AstronomyLibs_Coordinates_float2text(floatcoordinates.value, format.value, decimals.value);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "../examples-php-ajax/coordinates.ajax.php", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("float2text=" + floatcoordinates.value + "&format=" + format.value + "&decimals=" + decimals.value);
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            textcoordinates.value = xmlhttp.responseText;
+        } else {
+            textcoordinates.value = "error";
+        }
     }
 }
 
 function updateText2Float() {
     last_updated = "t2f";
 
-    if (decimals.value == "") {
-        floatcoordinates.value = AstronomyLibs_Coordinates_text2float(textcoordinates.value);
-    } else {
-        floatcoordinates.value = AstronomyLibs_Coordinates_text2float(textcoordinates.value, decimals.value);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "../examples-php-ajax/coordinates.ajax.php", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("text2float=" + textcoordinates.value + "&decimals=" + decimals.value);
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            floatcoordinates.value = xmlhttp.responseText;
+        } else {
+            floatcoordinates.value = "error";
+        }
     }
 }
 
