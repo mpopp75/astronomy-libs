@@ -76,7 +76,7 @@ function simbadRequest(request) {
 
 function detectEnter(e) {
     if (e.keyCode == 13) {
-       simbadRequest();
+       simbadRequest('fullreply')
     }
 }
 </script>
