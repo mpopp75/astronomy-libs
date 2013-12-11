@@ -38,32 +38,30 @@ arcsecond part of the text format (e.g. 3 decimals to get 19° 16' 32.629" for 1
 
 <p>Input allows negative values for degrees, as well as directions N, S, E, W (S &amp; W being converted to negative float values).</p>
 
-<form>
-    <table>
-        <thead>
-            <tr>
-                <td>Float Coordinate</td>
-                <td>Text Coordinate</td>
-                <td>Format</td>
-                <td>Decimals</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="text" id="floatcoordinates" autofocus oninput="updateFloat2Text()" placeholder="Float"></td>
-                <td><input type="text" id="textcoordinates" oninput="updateText2Float()" placeholder="Text"></td>
-                <td><select id="format" onchange="updateLastChanged()">
-                        <option value="symbols" selected>10° 20' 30.4"</option>
-                        <option value="spaces">10 20 30.4</option>
-                        <option value="dms">10d 20m 30.4s</option>
-                        <option value="hms">10h 20m 30.4s</option>
-                    </select>
-                </td>
-                <td><input type="number" id="decimals" class="shortinput" value="" oninput="updateLastChanged()"></td>
-            </tr>
-        </tbody>
-    </table>
-</form>
+<table>
+    <thead>
+        <tr>
+            <td>Float Coordinate</td>
+            <td>Text Coordinate</td>
+            <td>Format</td>
+            <td>Decimals</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="number" step="any" id="floatcoordinates" autofocus oninput="updateFloat2Text()" placeholder="Float"></td>
+            <td><input type="text" id="textcoordinates" oninput="updateText2Float()" placeholder="Text"></td>
+            <td><select id="format" onchange="updateLastChanged()">
+                    <option value="symbols" selected>10° 20' 30.4"</option>
+                    <option value="spaces">10 20 30.4</option>
+                    <option value="dms">10d 20m 30.4s</option>
+                    <option value="hms">10h 20m 30.4s</option>
+                </select>
+            </td>
+            <td><input type="number" min="0" id="decimals" class="shortinput" value="" oninput="updateLastChanged()"></td>
+        </tr>
+    </tbody>
+</table>
 <script>
 // set input fields
 var floatcoordinates = document.getElementById('floatcoordinates');

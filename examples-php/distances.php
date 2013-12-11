@@ -31,28 +31,26 @@
 
 <p>Enter a float value in any of the input fields, and it will be converted to the corresponding values of the other units.</p>
 
-<form>
-    <table>
-        <thead>
-            <tr>
-                <td>Kilometers</td>
-                <td>Miles</td>
-                <td>Astronomical Units</td>
-                <td>Light Years</td>
-                <td>Parsecs</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="text" id="km" autofocus oninput="updateDistances('km')" placeholder="Kilometers"></td>
-                <td><input type="text" id="mi" autofocus oninput="updateDistances('mi')" placeholder="Miles"></td>
-                <td><input type="text" id="au" autofocus oninput="updateDistances('au')" placeholder="Astronomical Units"></td>
-                <td><input type="text" id="ly" autofocus oninput="updateDistances('ly')" placeholder="Light Years"></td>
-                <td><input type="text" id="pc" autofocus oninput="updateDistances('pc')" placeholder="Parsecs"></td>
-            </tr>
-        </tbody>
-    </table>
-</form>
+<table>
+    <thead>
+        <tr>
+            <td>Kilometers</td>
+            <td>Miles</td>
+            <td>Astronomical Units</td>
+            <td>Light Years</td>
+            <td>Parsecs</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="number" step="any" id="km" oninput="updateDistances('km')" placeholder="Kilometers" autofocus></td>
+            <td><input type="number" step="any" id="mi" oninput="updateDistances('mi')" placeholder="Miles"></td>
+            <td><input type="number" step="any" id="au" oninput="updateDistances('au')" placeholder="Astronomical Units"></td>
+            <td><input type="number" step="any" id="ly" oninput="updateDistances('ly')" placeholder="Light Years"></td>
+            <td><input type="number" step="any" id="pc" oninput="updateDistances('pc')" placeholder="Parsecs"></td>
+        </tr>
+    </tbody>
+</table>
 <script>
 // set input fields
 var km = document.getElementById('km');
@@ -70,17 +68,37 @@ function updateDistances(field) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             // parse JSON response to Javascript array
             var response = JSON.parse(xmlhttp.responseText);
-            km.value = response.km;
-            mi.value = response.mi;
-            au.value = response.au;
-            ly.value = response.ly;
-            pc.value = response.pc;
-        } else {
-            km.value = "Error";
-            mi.value = "Error";
-            au.value = "Error";
-            ly.value = "Error";
-            pc.value = "Error";
+            switch (field) {
+                case "km" :
+                    mi.value = response.mi;
+                    au.value = response.au;
+                    ly.value = response.ly;
+                    pc.value = response.pc;
+                    break;
+                case "mi" :
+                    km.value = response.km;
+                    au.value = response.au;
+                    ly.value = response.ly;
+                    pc.value = response.pc;
+                    break;
+                case "au" :
+                    km.value = response.km;
+                    mi.value = response.mi;
+                    ly.value = response.ly;
+                    pc.value = response.pc;
+                    break;
+                case "ly" :
+                    km.value = response.km;
+                    mi.value = response.mi;
+                    au.value = response.au;
+                    pc.value = response.pc;
+                    break;
+                case "pc" :
+                    km.value = response.km;
+                    mi.value = response.mi;
+                    au.value = response.au;
+                    ly.value = response.ly;
+            }
         }
     }
 }
@@ -95,38 +113,36 @@ function updateDistances(field) {
 <p>Calculates the distance between Location A and Location B based on their geographical coordinates.
 Values can be entered as either float or text (as supported by Coordinates::float2text).</p>
 
-<form>
-    <table>
-        <thead>
-            <tr>
-                <td>&nbsp;</td>
-                <td>Latitude</td>
-                <td>Longitude</td>
-                <td>&nbsp;</td>
-            </tr>
-        </thead>
-        <tbody>
-           <tr>
-                <td>Location A:</td>
-                <td><input type="text" id="lat_a" oninput="calcDistance()"></td>
-                <td><input type="text" id="lon_a" oninput="calcDistance()"></td>
-                <td><button type="button" onclick="getCurrentLocation()">Get Current Location</button>
-           </tr>
-           <tr>
-                <td>Location B:</td>
-                <td><input type="text" id="lat_b" oninput="calcDistance()"></td>
-                <td><input type="text" id="lon_b" oninput="calcDistance()"></td>
-                <td>&nbsp;</td>
-           </tr>
-           <tr>
-                <td>Distance:</td>
-                <td><span id="distance"></span></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-           </tr>
-        </tbody>
-    </table>
-</form>
+<table>
+    <thead>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+       <tr>
+            <td>Location A:</td>
+            <td><input type="text" id="lat_a" oninput="calcDistance()"></td>
+            <td><input type="text" id="lon_a" oninput="calcDistance()"></td>
+            <td><button onclick="getCurrentLocation()">Get Current Location</button>
+       </tr>
+       <tr>
+            <td>Location B:</td>
+            <td><input type="text" id="lat_b" oninput="calcDistance()"></td>
+            <td><input type="text" id="lon_b" oninput="calcDistance()"></td>
+            <td>&nbsp;</td>
+       </tr>
+       <tr>
+            <td>Distance:</td>
+            <td><span id="distance"></span></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+       </tr>
+    </tbody>
+</table>
 <script>
 var lat_a    = document.getElementById('lat_a');
 var lon_a    = document.getElementById('lon_a');
