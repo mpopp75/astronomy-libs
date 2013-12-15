@@ -61,7 +61,7 @@ function AstronomyLibs_Distances_calcDistanceAB(distance_a, distance_b, angle_ga
 }
 
 /*
- * deg2rad(deg)
+ * AstronomyLibs_Distances_deg2rad(deg)
  *
  * converts degrees to radiants
  *
