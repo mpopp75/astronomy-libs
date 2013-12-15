@@ -100,7 +100,7 @@ function updateDistances(field) {
 }
 </script>
 <hr>
-<p>Uses the following function:</p>
+<p>Uses the following functions:</p>
 
 <ul>
     <li>AstronomyLibs_Distances_distanceBetween</li>
@@ -170,6 +170,51 @@ function getCurrentLocation() {
         lat_a.value = AstronomyLibs_Coordinates_float2text(this.latitude);
         lon_a.value = AstronomyLibs_Coordinates_float2text(this.longitude);
     });
+}
+</script>
+<hr>
+<p>Uses the following function:</p>
+
+<ul>
+    <li>AstronomyLibs_Distances_calcDistanceAB</li>
+</ul>
+
+<p>This calculates distance between point A and point B providing distance to both points A and B and the angle separating them (gamma). Output distance unit is identical to input distance units. Calculation method used is the law of cosines as described at <a href="http://en.wikipedia.org/wiki/Law_of_cosines#Applications">http://en.wikipedia.org/wiki/Law_of_cosines#Applications</a></p>
+<table>
+<tbody>
+    <tr>
+        <td>Distance to A: </td>
+        <td><input type="number" min="0" step="any" id="distancea" placeholder="Enter distance to A" value="" oninput="calcDistanceAB()"></td>
+    </tr>
+    <tr>
+        <td>Distance to B: </td>
+        <td><input type="number" min="0" step="any" id="distanceb" placeholder="Enter distance to B" value="" oninput="calcDistanceAB()"></td>
+    </tr>
+    <tr>
+        <td>Angle γ: </td>
+        <td><input type="text" id="anglegamma" placeholder="Enter angle γ" value="" oninput="calcDistanceAB()"></td>
+    </tr>
+    <tr>
+        <td>Distance from A to B: </td>
+        <td id="distanceab"></td>
+    </tr>
+</tbody>
+</table>
+<script>
+var distancea  = document.getElementById('distancea');
+var distanceb  = document.getElementById('distanceb');
+var anglegamma = document.getElementById('anglegamma');
+var distanceab = document.getElementById('distanceab');
+
+function calcDistanceAB() {
+    if (distancea.value  != "" &&
+        distanceb.value  != "" &&
+        anglegamma.value != "") {
+
+        distanceab.innerHTML = AstronomyLibs_Distances_calcDistanceAB(parseFloat(distancea.value),
+                                                                      parseFloat(distanceb.value),
+                                                                      AstronomyLibs_Coordinates_text2float(anglegamma.value));
+    }
 }
 </script>
 </body>

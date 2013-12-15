@@ -178,5 +178,58 @@ function getCurrentLocation() {
     });
 }
 </script>
+<hr>
+<p>Uses the following method:</p>
+
+<ul>
+    <li>Distances::calcDistanceAB</li>
+</ul>
+
+<p>This calculates distance between point A and point B providing distance to both points A and B and the angle separating them (gamma). Output distance unit is identical to input distance units. Calculation method used is the law of cosines as described at <a href="http://en.wikipedia.org/wiki/Law_of_cosines#Applications">http://en.wikipedia.org/wiki/Law_of_cosines#Applications</a></p>
+<table>
+<tbody>
+    <tr>
+        <td>Distance to A: </td>
+        <td><input type="number" min="0" step="any" id="distancea" placeholder="Enter distance to A" value="" oninput="calcDistanceAB()"></td>
+    </tr>
+    <tr>
+        <td>Distance to B: </td>
+        <td><input type="number" min="0" step="any" id="distanceb" placeholder="Enter distance to B" value="" oninput="calcDistanceAB()"></td>
+    </tr>
+    <tr>
+        <td>Angle γ: </td>
+        <td><input type="text" id="anglegamma" placeholder="Enter angle γ" value="" oninput="calcDistanceAB()"></td>
+    </tr>
+    <tr>
+        <td>Distance from A to B: </td>
+        <td id="distanceab"></td>
+    </tr>
+</tbody>
+</table>
+<script>
+var distancea  = document.getElementById('distancea');
+var distanceb  = document.getElementById('distanceb');
+var anglegamma = document.getElementById('anglegamma');
+var distanceab = document.getElementById('distanceab');
+
+function calcDistanceAB() {
+    if (distancea.value  != "" &&
+        distanceb.value  != "" &&
+        anglegamma.value != "") {
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", "../examples-php-ajax/distanceab.ajax.php", true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send("distancea=" + distancea.value + "&distanceb=" + distanceb.value + "&gamma=" + anglegamma.value);
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                distanceab.innerHTML = xmlhttp.responseText;
+            } else {
+                distanceab.innerHTML = "";
+            }
+        }
+    }
+}
+</script>
 </body>
 </html>

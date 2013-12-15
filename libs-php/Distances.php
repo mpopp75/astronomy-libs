@@ -44,6 +44,28 @@ class Distances
                       cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad(abs($lon2 - $lon1)))));
     }
 
+    /*
+     * calcDistanceAB($distanceA, $distanceB, $angleGamma)
+     *
+     * calculates distance between point A and point B providing distance to both
+     * points A and B and the angle separating them (gamma). Output distance
+     * unit is identical to input distance units. Calculation method used is the
+     * law of cosines as described at http://en.wikipedia.org/wiki/Law_of_cosines#Applications
+     * c = sqrt(a² + b² - 2ab * cos(γ))
+     *
+     * @param: float $distanceA distance to point A
+     * @param: float $distanceB distance to point B
+     * @param: float $angleGamma gamma (as float) separating point A and B
+     * @author: Markus Popp <git@mpopp.net>
+     * @license: http://www.opensource.org/licenses/mit-license.html MIT License
+     * @return: float   distance between point A and point B
+     */
+    public static function calcDistanceAB($distanceA, $distanceB, $angleGamma) {
+
+        return sqrt(pow($distanceA, 2) + pow($distanceB, 2)
+                  - 2 * $distanceA * $distanceB * cos(deg2rad($angleGamma)));
+    }
+
     /**
      * mi2km($mi)
      *

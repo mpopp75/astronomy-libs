@@ -26,7 +26,7 @@ Coordinates contains functions to convert float coordinates (geographical latitu
 
 ### Distances (PHP & JS)
 
-Distances contains functions to convert distance units, like kilometers, miles, astronomical units, light years and parsecs. Further it contains a function to calculate the geographical distance between 2 latitude/longitude pairs (on Earth).
+Distances contains functions to convert distance units, like kilometers, miles, astronomical units, light years and parsecs. Another function calculates the geographical distance between 2 latitude/longitude pairs (on Earth), yet another function calculates the distance between 2 points while the distance to each of the points and the angle separating is given.
 
 ### Location (PHP & JS)
 

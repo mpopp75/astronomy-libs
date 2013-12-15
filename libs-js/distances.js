@@ -33,9 +33,31 @@ function AstronomyLibs_Distances_distanceBetween(location1, location2) {
     var lon2 = location2.longitude;
 
     return EARTH_RADIUS *
-        Math.acos(Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) +
-                  Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                    Math.cos(deg2rad(Math.abs(lon2 - lon1))));
+        Math.acos(Math.sin(AstronomyLibs_Distances_deg2rad(lat1)) * Math.sin(AstronomyLibs_Distances_deg2rad(lat2)) +
+                  Math.cos(AstronomyLibs_Distances_deg2rad(lat1)) * Math.cos(AstronomyLibs_Distances_deg2rad(lat2)) *
+                    Math.cos(AstronomyLibs_Distances_deg2rad(Math.abs(lon2 - lon1))));
+}
+
+/*
+ * AstronomyLibs_Distances_calcDistanceAB(distance_a, distance_b, angle_gamma)
+ *
+ * calculates distance between point A and point B providing distance to both
+ * points A and B and the angle separating them (gamma). Output distance
+ * unit is identical to input distance units. Calculation method used is the
+ * law of cosines as described at http://en.wikipedia.org/wiki/Law_of_cosines#Applications
+ * c = sqrt(a² + b² - 2ab * cos(γ))
+ *
+ * param: float distance_a distance to point A
+ * param: float distance_b distance to point B
+ * param: float angle gamma (as float) separating point A and B
+ * author: Markus Popp <git@mpopp.net>
+ * license: http://www.opensource.org/licenses/mit-license.html MIT License
+ * return: float   distance between point A and point B
+ */
+function AstronomyLibs_Distances_calcDistanceAB(distance_a, distance_b, angle_gamma) {
+
+    return Math.sqrt(Math.pow(distance_a, 2) + Math.pow(distance_b, 2)
+                   - 2 * distance_a * distance_b * Math.cos(AstronomyLibs_Distances_deg2rad(angle_gamma)));
 }
 
 /*
@@ -48,7 +70,7 @@ function AstronomyLibs_Distances_distanceBetween(location1, location2) {
  * license: http://www.opensource.org/licenses/mit-license.html MIT License
  * return: float   degrees converted to radiants
  */
-function deg2rad(deg) {
+function AstronomyLibs_Distances_deg2rad(deg) {
     return (deg / 180) * Math.PI;
 }
 
