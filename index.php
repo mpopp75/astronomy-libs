@@ -10,6 +10,7 @@
 <body>
 <?php include 'page_header.inc.php'; ?>
 
+<article>
 <div id="php">
 <h1>PHP</h1>
 
@@ -43,5 +44,6 @@ function toggleAbout() {
     }
 }
 </script>
+</article>
 </body>
 </html>

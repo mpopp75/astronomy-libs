@@ -13,6 +13,7 @@
 <body>
 <?php include '../page_header.inc.php'; ?>
 
+<article>
 <h1>Distances</h1>
 
 <p>Uses the following functions:</p>
@@ -217,5 +218,6 @@ function calcDistanceAB() {
     }
 }
 </script>
+</article>
 </body>
 </html>

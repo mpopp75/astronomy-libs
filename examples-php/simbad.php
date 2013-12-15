@@ -27,6 +27,7 @@ div#output {
 <body>
 <?php include '../page_header.inc.php'; ?>
 
+<article>
 <h1>Coordinates</h1>
 
 <h2>Namespace: mpopp75\AstronomyLibs</h2>
@@ -80,5 +81,6 @@ function detectEnter(e) {
     }
 }
 </script>
+</article>
 </body>
 </html>
