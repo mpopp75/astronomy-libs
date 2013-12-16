@@ -12,7 +12,6 @@
 <body>
 <?php include '../page_header.inc.php'; ?>
 
-<article>
 <h1>Distances</h1>
 
 <h2>Namespace: mpopp75\AstronomyLibs</h2>
@@ -232,6 +231,5 @@ function calcDistanceAB() {
     }
 }
 </script>
-</article>
 </body>
 </html>

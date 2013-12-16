@@ -10,8 +10,6 @@
 </head>
 <body>
 <?php include '../page_header.inc.php'; ?>
-
-<article>
 <h1>Coordinates</h1>
 
 <p>Uses the following functions:</p>
@@ -103,6 +101,5 @@ function updateLastChanged() {
     }
 }
 </script>
-</article>
 </body>
 </html>
