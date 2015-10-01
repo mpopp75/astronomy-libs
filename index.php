@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Astronomy Libs</title>
+<link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/index.css">
 <link rel="shortcut icon" href="favicon/moon.png">
 </head>
 <body>
