@@ -4,6 +4,6 @@
     </div>
     <div id="headerright">
         <h1><a href="/">Astronomical Libraries</a></h1>
-        <p><small>&copy; 2013-2015, Markus Popp -- hosted at <a href="https://github.com/mpopp75/astronomy-libs">&raquo;&nbsp;GibHub&nbsp;&laquo;</a></small></p>
+        <p><small>&copy; 2013-<?php print date('Y'); ?>, Markus Popp -- hosted at <a href="https://github.com/mpopp75/astronomy-libs">&raquo;&nbsp;GibHub&nbsp;&laquo;</a></small></p>
     </div>
 </header>
